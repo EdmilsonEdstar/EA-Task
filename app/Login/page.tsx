@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function Login(){
     return(
-        <div className="h-[100vh] flex flex-col lg:flex-row justify-center items-center gap-10">
+        <div className="lg:h-[100vh] flex flex-col lg:flex-row justify-center items-center gap-10">
             <div className="mb-2">
                 <Link href="/" className="hidden lg:flex justify-start px-6 bg-gray-50 text-gray-400 font-bold py-2 rounded cursor-pointer hover:bg-gray-200 transition"><ArrowLeft/> back</Link>
                 <img src="/login.svg" className="hidden lg:block lg:w-100 pt-2" alt=""/>
@@ -22,7 +22,7 @@ export default function Login(){
                              label_name="Username"
                              label_className="text-sm font-medium text-gray-700"
                              input_type="text"
-                             input_className="border border-gray-300 rounded px-3 py-2 outline-none focus:ring-2 focus:ring-amber-500"
+                             input_className="border border-gray-300 rounded w-auto px-3 py-2 outline-none focus:ring-2 focus:ring-amber-500"
                         />
                     </div>
 
