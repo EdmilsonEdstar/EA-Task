@@ -6,8 +6,8 @@ export default function Login(){
     return(
         <div className="h-[100vh] flex flex-col lg:flex-row justify-center items-center gap-10">
             <div className="mb-2">
-                <Link href="/" className="flex justify-start px-6 bg-gray-50 text-gray-400 font-bold py-2 rounded cursor-pointer hover:bg-gray-200 transition"><ArrowLeft/> back</Link>
-                <img src="/login.svg" className="w-50 lg:w-100 pt-2" alt=""/>
+                <Link href="/" className="hidden lg:flex justify-start px-6 bg-gray-50 text-gray-400 font-bold py-2 rounded cursor-pointer hover:bg-gray-200 transition"><ArrowLeft/> back</Link>
+                <img src="/login.svg" className="hidden lg:block lg:w-100 pt-2" alt=""/>
             </div>
             <div>
                 <div className="flex justify-center items-center gap-6">
