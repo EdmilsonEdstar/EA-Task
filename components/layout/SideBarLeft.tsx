@@ -10,10 +10,26 @@ export default function SideBarLeft() {
                 <h1 className="text-2xl font-bold"><span className="text-amber-400">EA</span>Task</h1> 
             </div>    
             <ul className="flex flex-row lg:flex-col justify-between lg:gap-0 space-y-4">
-                <li className="flex flex-col lg:flex-row items-center gap-2"><Home size={18} /> Dashboard</li>
-                <li className="flex flex-col lg:flex-row items-center gap-2"><ListTodo size={18} /> Tasks</li>
-                <li className="flex flex-col lg:flex-row items-center gap-2"><Timer size={18} /> Reports</li>
-                <li className="flex flex-col lg:flex-row items-center gap-2"><Settings size={18} /> Settings</li>
+                <li>
+                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-400 transition-all">
+                        <Home size={18} /> Dashboard
+                    </Link>
+                </li>
+                <li>
+                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-400 transition-all">
+                        <ListTodo size={18} /> Tasks
+                    </Link>
+                </li>
+                <li>
+                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-400 transition-all">
+                        <Timer size={18} /> Reports
+                    </Link>
+                </li>
+                <li>
+                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-400 transition-all">
+                        <Settings size={18} /> Settings
+                    </Link>
+                </li>
             </ul>
         </div>
     </>
