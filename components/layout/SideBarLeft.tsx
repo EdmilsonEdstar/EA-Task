@@ -5,7 +5,8 @@ import Link from "next/link";
 export default function SideBarLeft() {
   return (
     <>
-        <div className="sm:fixed absolute bottom-0 w-[100%] lg:w-[15%] lg:h-[100vh] px-6 pt-4  bg-white border-r-2 border-gray-100">  
+<div className="fixed bottom-0 w-full lg:static lg:h-screen lg:w-[15%] px-6 pt-4 bg-white border-t-2 lg:border-t-0 lg:border-r-2 border-gray-100 z-50">
+
             <div className="mb-10 sm:static hidden lg:block">
                 <h1 className="text-2xl font-bold"><span className="text-amber-400">EA</span>Task</h1> 
             </div>    
