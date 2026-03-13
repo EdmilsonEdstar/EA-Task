@@ -95,7 +95,7 @@ export default function SideBarRight() {
         </div>
 
         {/* Table */}
-        <div className="justify-center px-6">
+        <div className="justify-center px-6 mb-10">
           <DashboardTable />
         </div>
         
