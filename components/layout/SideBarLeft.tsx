@@ -12,22 +12,22 @@ export default function SideBarLeft() {
             </div>    
             <ul className="flex flex-row lg:flex-col justify-between lg:gap-0 space-y-4 text-sm l">
                 <li>
-                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-400 transition-all">
+                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-600 transition-all">
                         <Home size={18} /> Dashboard
                     </Link>
                 </li>
                 <li>
-                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-400 transition-all">
+                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-600 transition-all">
                         <ListTodo size={18} /> Tasks
                     </Link>
                 </li>
                 <li>
-                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-400 transition-all">
+                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-600 transition-all">
                         <Timer size={18} /> Reports
                     </Link>
                 </li>
                 <li>
-                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-400 transition-all">
+                    <Link href="" className="flex flex-col lg:flex-row items-center gap-2 hover:text-amber-600 transition-all">
                         <Settings size={18} /> Settings
                     </Link>
                 </li>

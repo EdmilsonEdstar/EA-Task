@@ -16,10 +16,10 @@ export default function SideBarRight() {
                       <button type="button" aria-label="User profile" className="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-amber-300 rounded-full transition"><User size={18} /></button>         
                   </div>
               </div>
-              <div className="flex flex-col lg:flex-row justify-between px-6 space-y-2">
-                  <DashboardCard icon={<ListTodo size={20} />} qty="12" desc="Open Tasks" />
-                  <DashboardCard icon={<Clock size={20} />} qty="8" desc="In Progress" />
-                  <DashboardCard icon={<CheckSquare size={20} />} qty="25" desc="Completed" />
+              <div className="flex flex-row justify-between px-6 items-stretch gap-2">
+                  <DashboardCard  qty="12" desc="Open Tasks" />
+                  <DashboardCard  qty="8" desc="In Progress" />
+                  <DashboardCard  qty="25" desc="Complet" />
               </div>
 
               <div className="justify-center px-6">
