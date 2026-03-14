@@ -29,7 +29,7 @@ export default function DashboardTable() {
       </tr>
     </tbody>
   </table>
-</div>
+  </div>
     </>
   );
 }
