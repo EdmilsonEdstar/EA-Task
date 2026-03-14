@@ -46,11 +46,22 @@ export default function Login(){
                         </p>
                     </div>
 
-                    <input 
+                    {/* Login Navigation Link */}
+                    <Link 
+                    href="/Home" 
+                    className="bg-amber-500 text-white font-bold py-2 rounded mt-2 text-center block w-full hover:bg-amber-600 transition shadow-md cursor-pointer"
+                    >
+                    Log In
+                    </Link>
+
+                    {/* Original Submit Button (Commented for future backend integration):
+                        <input 
                         type="submit" 
                         value="Log In" 
                         className="bg-amber-500 text-white font-bold py-2 rounded mt-2 cursor-pointer hover:bg-amber-600 transition shadow-md" 
-                    />
+                        /> 
+                    */}
+                
 
                     <div className="text-center pt-4 border-t border-gray-100 mt-2">
                         <p className="text-sm text-gray-600 mb-2">Do you need an account?</p>
