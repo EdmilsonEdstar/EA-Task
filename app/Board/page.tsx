@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, DragEvent } from "react";
+import { useState } from "react";
 import Dashboard from "@/components/layout/Dashboard";
 
 type Task = {
@@ -19,78 +19,91 @@ const initialTasks: Task[] = [
 export default function Board() {
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
 
+  /**
+   * Updates the status of a specific task.
+   * This allows moving tasks between columns.
+   */
   const updateTaskStatus = (id: number, newStatus: Task["status"]) => {
     setTasks((prev) =>
       prev.map((t) => (t.id === id ? { ...t, status: newStatus } : t))
     );
   };
 
-  const columns = [
-    { key: "open", title: "Open Tasks" },
-    { key: "progress", title: "In Progress" },
-    { key: "completed", title: "Completed" },
+  const columns: { key: Task["status"]; title: string; color: string }[] = [
+    { key: "open", title: "Open Tasks", color: "bg-gray-200" },
+    { key: "progress", title: "In Progress", color: "bg-amber-100" },
+    { key: "completed", title: "Completed", color: "bg-green-100" },
   ];
 
   return (
     <Dashboard>
-      <div className="px-6 py-4 animate-modal-pop delay-75">
-        <h1 className="text-2xl font-bold mb-6">Board</h1>
+      {/* Main container with pb-24 to prevent the content from being hidden 
+          by the mobile bottom navigation bar.
+      */}
+      <div className="px-6 py-4 pb-24 lg:pb-10 min-h-screen">
+        <h1 className="text-2xl font-bold mb-6 text-gray-800">Kanban Board</h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 animate-modal-pop delay-0">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {columns.map((col) => (
             <div
               key={col.key}
-              className="bg-gray-100 rounded-lg p-4 min-h-[400px]"
+              className="bg-gray-50/50 border border-gray-100 rounded-xl p-4 min-h-[500px] flex flex-col"
             >
-              <h2 className="font-bold mb-4">{col.title}</h2>
+              <div className="flex items-center justify-between mb-4 px-2">
+                <h2 className="font-bold text-gray-700 flex items-center gap-2">
+                  {col.title}
+                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full">
+                    {tasks.filter((t) => t.status === col.key).length}
+                  </span>
+                </h2>
+              </div>
 
-              <div className="space-y-3">
+              <div className="space-y-3 flex-1">
                 {tasks
                   .filter((task) => task.status === col.key)
                   .map((task) => (
                     <div
                       key={task.id}
-                      className="bg-white p-4 rounded-lg shadow hover:shadow-md cursor-pointer transition flex flex-col gap-2"
+                      className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all animate-modal-pop"
                     >
-                      <span>{task.title}</span>
+                      <span className="text-sm font-medium text-gray-700 block mb-3">
+                        {task.title}
+                      </span>
 
-                      <div className="flex gap-2">
+                      {/* Dynamic action buttons based on status */}
+                      <div className="flex gap-2 justify-end pt-2 border-t border-gray-50">
                         {task.status === "open" && (
                           <button
-                            className="px-2 py-1 bg-blue-500 text-white rounded"
+                            className="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors"
                             onClick={() => updateTaskStatus(task.id, "progress")}
                           >
-                            → In Progress
+                            Start Work →
                           </button>
                         )}
 
                         {task.status === "progress" && (
                           <>
                             <button
-                              className="px-2 py-1 bg-gray-300 text-black rounded"
+                              className="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors"
                               onClick={() => updateTaskStatus(task.id, "open")}
                             >
-                              ← Open
+                              ← Back
                             </button>
                             <button
-                              className="px-2 py-1 bg-green-500 text-white rounded"
-                              onClick={() =>
-                                updateTaskStatus(task.id, "completed")
-                              }
+                              className="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-green-50 text-green-600 rounded-lg hover:bg-green-600 hover:text-white transition-colors"
+                              onClick={() => updateTaskStatus(task.id, "completed")}
                             >
-                              → Completed
+                              Finish →
                             </button>
                           </>
                         )}
 
                         {task.status === "completed" && (
                           <button
-                            className="px-2 py-1 bg-yellow-400 text-white rounded"
-                            onClick={() =>
-                              updateTaskStatus(task.id, "progress")
-                            }
+                            className="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-600 hover:text-white transition-colors"
+                            onClick={() => updateTaskStatus(task.id, "progress")}
                           >
-                            ← In Progress
+                            ← Reopen
                           </button>
                         )}
                       </div>
